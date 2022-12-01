@@ -25,7 +25,7 @@ module.exports = {
                 
                         label: "Film",
                         value: "989518883696304128",
-                        emoji: "989954792619114516"
+                        emoji: "📺"
                     }                
                 
                 )
