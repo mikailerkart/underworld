@@ -11,8 +11,8 @@ const slashCommands = [];
 client.once("ready", () => {
     console.log(`${client.user.username} is online.`);
 
-    let guildId = process.env.guildID;
-    let clientId = process.env.clientID;
+    let guildId = config.guildID;
+    let clientId = config.clientID;
     let token = process.env.token;
 
     const rest = new REST({version: 10}).setToken(token);
