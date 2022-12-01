@@ -1,0 +1,20 @@
+{
+  "name": "bot-v14",
+  "version": "1.0.0",
+  "description": "Bot v14",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "edwin",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "discord.js": "^14.2.0",
+    "moment": "^2.29.4",
+    "node-fetch": "^3.3.0"
+  }
+}
