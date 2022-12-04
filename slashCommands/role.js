@@ -28,42 +28,8 @@ module.exports = {
                 .setTitle('Sunucu ya hoş geldiniz')
                 .setDescription('İlk önce sunucuya hoş geldiniz, sunucu ya kendiniz kayıt yapmak istiyorsanız ilk önce study yada public kayıt yerini görmek için study veya public seçmeniz gerekiyor.\n\n**Aşağıdaki button dan kendinize rolünüzü alabilirisiniz.**')
 
-        const collector = interaction.channel.createMessageComponentCollector({
-            ComponentType: ComponentType.Button
-        });
-
         await interaction.reply({ content: "Button başarılı bir şekilde gönderildi", ephemeral: true});
         await interaction.channel.send({ embeds: [embed], components: [row] });
-
-        collector.on("collect", async (interactionButton) => {
-
-            let id = interactionButton.customId;
-            let userID = interactionButton.user.id;
-            var mesaj = "";
-
-            let userData = interactionButton.guild.members.cache.get(userID)
-
-            switch (id) {
-                case "study":
-                    await userData.roles.cache.has(studyRole.id)
-                    ? await userData.roles.remove(studyRole).then(() => {
-                        mesaj = "Study rolünüz kaldırıldı.";
-                    })
-                    : await userData.roles.add(studyRole).then(() => {
-                        mesaj = "Study rolü alındı."
-                    });
-                return interactionButton.reply({content: mesaj, ephemeral: true});
-                case "public":
-                    await userData.roles.cache.has(publicRole.id)
-                    ? await userData.roles.remove(publicRole).then(() => {
-                        mesaj = "Public rolünüz kaldırıldı.";   
-                    })
-                    : await userData.roles.add(publicRole).then(() => {
-                        mesaj = "Public rolü alındı."
-                    });
-                    return interactionButton.reply({content: mesaj, ephemeral: true});
-
-            }
-        })
+   
 	},
 };

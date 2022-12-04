@@ -37,6 +37,33 @@ for (const file of commandFiles) {
 }
 
 client.on('interactionCreate', async interaction => {
+
+	if (interaction.isButton()) {
+		const studyRole = interaction.guild.roles.cache.find(r => r.name.toLowerCase() == "👨‍🏫"); //study role kayit
+		const publicRole = interaction.guild.roles.cache.find(r => r.name.toLowerCase() == "👬"); //public role kayit
+
+		const member = interaction.member
+		var mesaj = "Roller güncellendi.";
+
+		switch (interaction.customId) {
+			case "study":
+				member.roles.cache.has(studyRole.id)
+				? member.roles.remove(studyRole)
+				: member.roles.add(studyRole)
+			return interaction.reply({content: mesaj, ephemeral: true});
+			break;
+			case "public":
+				member.roles.cache.has(publicRole.id)
+				? member.roles.remove(publicRole)
+				: member.roles.add(publicRole)
+			return interaction.reply({content: mesaj, ephemeral: true});
+			break;
+			}
+	}
+
+});
+
+client.on('interactionCreate', async interaction => {
 	// if (!interaction.isChatInputCommand()) return;
 
 	const { customId, values, guild, member, component } = interaction;
@@ -83,6 +110,7 @@ client.on('interactionCreate', async interaction => {
 
 });
 
+/*
 client.on('guildMemberAdd', async (member) => {
 
 	member.guild.channels.cache.find(c => c.name.toLowerCase() == "welcome").send(`Sunucuya hoş geldiniz, ${member}`); // register chat
@@ -98,5 +126,6 @@ client.on('guildMemberAdd', async (member) => {
 	member.roles.add(role)
 
 });
+*/
 
 client.login(process.env.token);
