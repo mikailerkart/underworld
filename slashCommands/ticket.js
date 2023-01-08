@@ -35,18 +35,28 @@ module.exports = {
 
         interaction.guild.channels.create({ name: userName.toLowerCase() + "-" + userDiscriminator, type: ChannelType.GuildText, parent: categoryId }).then(
             (createdchan) => {
-                // Perms zodat iedereen niets kan lezen.
-                // LET OP het is nu PascalCase i.p.v. snake_case ook NIET camelCase.
+
                 createdchan.permissionOverwrites.edit(interaction.guild.roles.cache.find(x => x.name === "@everyone"), {
 
                     SendMessages: false,
                     ViewChannel: false
-                    // SEND_MESSAGES: false,
-                    // VIEW_CHANNEL: false
 
                 });
 
-                // Perms zodat de gebruiker die het command heeft getypt alles kan zien van zijn ticket.
+                createdchan.permissionOverwrites.edit(interaction.guild.roles.cache.find(x => x.name === "Üye"), {
+
+                    SendMessages: false,
+                    ViewChannel: false
+
+                });
+
+                createdchan.permissionOverwrites.edit(interaction.guild.roles.cache.find(x => x.name === "Student"), {
+
+                    SendMessages: false,
+                    ViewChannel: false
+
+                });
+
                 createdchan.permissionOverwrites.edit(interaction.user.id, {
                     CreateInstantInvite: false,
                     ReadMessageHistory: true,
@@ -57,7 +67,6 @@ module.exports = {
                     ViewChannel: true
                 });
 
-                // Perms zodat de gebruikers die een bepaalde rol hebben alles kan zien van zijn ticket.
                 createdchan.permissionOverwrites.edit(interaction.guild.roles.cache.find(x => x.name === "Owner"), { // ticket yetkili
                     CreateInstantInvite: false,
                     ReadMessageHistory: true,
