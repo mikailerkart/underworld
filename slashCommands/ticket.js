@@ -11,7 +11,7 @@ module.exports = {
                 .setRequired(true)),
     async execute(client, interaction) {
 
-        const categoryId = "988827487591096380"; // category id ticket
+        const categoryId = "887049125185597442"; // category id ticket
 
         var userName = interaction.user.username;
         var userDiscriminator = interaction.user.discriminator;
