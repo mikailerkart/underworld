@@ -8,7 +8,7 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers),
 	async execute(client, interaction) {
 		
-        const categoryId = "988827487591096380"; // category id ticket
+        const categoryId = "887049125185597442"; // category id ticket
 
         if(interaction.channel.parentId == categoryId){
             interaction.channel.delete();
