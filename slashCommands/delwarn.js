@@ -41,7 +41,7 @@ module.exports = {
                 { name: "Warnings", value: warns[member.id].warns.toString() }
     );
 
-    await interaction.guild.channels.cache.find(c => c.name.toLowerCase() == "log").send({embeds: [embed]});
+    await interaction.guild.channels.cache.find(c => c.name.toLowerCase() == "uyarı-log").send({embeds: [embed]});
 
     await member.send({embeds: [embed]}).catch(() =>{
         interaction.channel.send("Bu kişi nin DM kutusu kapalı.");

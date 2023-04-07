@@ -21,7 +21,7 @@ module.exports = {
 
         let member = interaction.options.getMember("user");
 
-        if (member.roles.cache.has(role.id)) return interaction.reply("Bu kişiyi warn atamazsınız");
+        if (member.roles.cache.has(role.id)) return interaction.reply("Bu kişiye warn atamazsınız");
 
         let reason = await interaction.options.getString("reason");
 
