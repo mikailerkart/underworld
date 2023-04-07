@@ -41,7 +41,7 @@ module.exports = {
                 { name: "Warnings", value: warns[member.id].warns.toString() }
     );
 
-    await interaction.guild.channels.cache.find(c => c.name.toLowerCase() == "log").send({embeds: [embed]});
+    await interaction.guild.channels.cache.find(c => c.name.toLowerCase() == "uyarı-log").send({embeds: [embed]});
 
     await member.send({embeds: [embed]}).catch(() =>{
         interaction.channel.send("Bu kişi nin DM kutusu kapalı.");
@@ -49,6 +49,7 @@ module.exports = {
 
     interaction.reply(`${member.user.tag} uyarıldı.`);
 
+/*
     switch (warns[member.id].warns) {
         
         case 4: 
@@ -68,7 +69,7 @@ module.exports = {
 
         break;
     }
-
+*/
     fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
         if (err) console.log(err);
     });
