@@ -46,6 +46,11 @@ module.exports = {
                         label: "Yeşil",
                         value: "1094973171167408128",
                         emoji: "💚"
+                    },
+                    {
+                        label: "Kırmızı",
+                        value: "1097528258704187612",
+                        emoji: "❤️"
                     }                
                 
                 )
