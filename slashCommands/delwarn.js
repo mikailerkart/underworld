@@ -6,7 +6,6 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('delwarn')
 		.setDescription('Bir kullanıcı nın uyarısını siler.')
-        .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
         .addUserOption(option =>
             option.setName('user')
                 .setDescription("Bir kullancı belirtin")
@@ -16,6 +15,8 @@ module.exports = {
                 .setDescription("Bir sebep belirtin")
                 .setRequired(true)),
 	async execute(client, interaction) {
+
+        if (!interaction.member.roles.cache.has('944695901031657593')) return interaction.reply({ content: "Sen warn silemezsin.", ephemeral: true});
 		
         let role = await interaction.guild.roles.cache.find(r => r.name.toLowerCase() == "owner"); // belirli rol
 

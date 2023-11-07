@@ -11,7 +11,7 @@ module.exports = {
 
         let year = today.getFullYear();
 
-        let yks = new Date(`15 Juni, 2024`);
+        let yks = new Date(`8 Juni, 2024`);
         //let yks = new Date(`28 November, ${year}`);
 
         let timeLeft = (yks.getTime() - today.getTime());
